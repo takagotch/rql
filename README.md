@@ -15,7 +15,30 @@ import (
 )
 
 func TestInt(t *testing.T) {
-
+  tests := []struct {
+    name string
+    model interface{}
+    wantErr bool
+  }{
+    {
+      name: "simple struct without tags",
+      model: new(struct {
+        Age int
+        Name string
+      }),
+    },
+    {
+      name: "simple filtering",
+      model: new(struct {
+        Age int `rql:"filter"`
+        Name string  `rql:"filter"`
+      }),
+    },
+    {
+    
+    }
+  
+  }
 }
 
 func TestParse(t *testing.T) {
